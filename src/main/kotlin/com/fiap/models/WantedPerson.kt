@@ -23,7 +23,10 @@ data class WantedPerson(
     val title: String,
     val uid: String,
     val id: String
-)
+) {
+    fun toRecentWantedListResponse() {
+    }
+}
 
 fun WantedPerson.toWantedPersonResponse(): WantedPersonResponse {
     return WantedPersonResponse(
