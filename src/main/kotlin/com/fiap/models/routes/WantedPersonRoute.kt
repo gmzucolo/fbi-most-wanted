@@ -1,4 +1,4 @@
-package com.fiap.plugins
+package com.fiap.models.routes
 
 import com.fiap.models.WantedPersonDataSource
 import io.ktor.http.*

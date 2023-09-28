@@ -1,6 +1,6 @@
 package com.fiap
 
-import com.fiap.plugins.configureRecentWantedListRouting
+import com.fiap.models.routes.configureRecentWantedListRouting
 import com.fiap.service.WantedPersonService
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*

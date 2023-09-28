@@ -1,5 +1,6 @@
-package com.fiap.plugins
+package com.fiap.models.routes
 
+import com.fiap.models.toWantedPersonResponse
 import com.fiap.service.WantedPersonService
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -8,9 +9,9 @@ import io.ktor.server.routing.*
 
 fun Application.configureRecentWantedListRouting(service: WantedPersonService) {
     routing {
-        get("/@wanted") {
+        get("/wanted") {
             val response = service.getRecentWantedList().map {
-                it.toRecentWantedListResponse()
+                it.toWantedPersonResponse()
             }
             call.respond(
                 HttpStatusCode.OK, response
@@ -19,13 +20,13 @@ fun Application.configureRecentWantedListRouting(service: WantedPersonService) {
     }
 
     routing {
-        get("/@wanted/{page}") {
+        get("/wanted/{page}") {
             val page = call.parameters["page"] ?: kotlin.run {
                 call.respond(HttpStatusCode.BadRequest)
                 return@get
             }
             val response = service.getRecentWantedList(page).map {
-                it.toRecentWantedListResponse()
+                it.toWantedPersonResponse()
             }
             call.respond(
                 HttpStatusCode.OK, response
@@ -34,15 +35,14 @@ fun Application.configureRecentWantedListRouting(service: WantedPersonService) {
     }
 
     routing {
-        get("/@wanted-person/{id}") {
+        get("/wanted-person/{id}") {
             val id = call.parameters["id"] ?: kotlin.run {
                 call.respond(HttpStatusCode.BadRequest)
                 return@get
             }
             service.getWantedPersonById(id)?.let { it1 ->
                 call.respond(
-                    HttpStatusCode.OK, it1.toRecentWantedListResponse(
-                    )
+                    HttpStatusCode.OK, it1.toWantedPersonResponse()
                 )
             }
         }

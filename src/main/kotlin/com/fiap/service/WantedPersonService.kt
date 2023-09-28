@@ -34,7 +34,7 @@ class WantedPersonService(private val database: Database) {
     }
 
     init {
-        transaction {
+        transaction(database) {
             SchemaUtils.create(RecentWantedList)
         }
     }
@@ -43,7 +43,8 @@ class WantedPersonService(private val database: Database) {
         newSuspendedTransaction(Dispatchers.IO) { block() }
 
     suspend fun getRecentWantedList(): List<WantedPerson> = dbQuery {
-        RecentWantedList.selectAll().map { row -> row.toWantedPerson() }
+        RecentWantedList.selectAll().map { row -> row.toWantedPerson()
+        }
     }
 
     suspend fun getWantedPersonById(id: String): WantedPerson? = dbQuery {

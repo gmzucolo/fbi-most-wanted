@@ -24,8 +24,7 @@ data class WantedPerson(
     val uid: String,
     val id: String
 ) {
-    fun toRecentWantedListResponse() {
-    }
+
 }
 
 fun WantedPerson.toWantedPersonResponse(): WantedPersonResponse {
