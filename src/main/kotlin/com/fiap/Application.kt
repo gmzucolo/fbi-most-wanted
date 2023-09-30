@@ -1,6 +1,8 @@
 package com.fiap
 
-import com.fiap.models.routes.configureRecentWantedListRouting
+import com.fiap.plugins.configureKoin
+import com.fiap.plugins.configureRouting
+import com.fiap.routes.configureRecentWantedListRouting
 import com.fiap.service.WantedPersonService
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -18,14 +20,18 @@ fun Application.module() {
     install(ContentNegotiation) {
         json()
     }
-    val database = Database.connect(
-        url = "jdbc:h2:file:./database/db",
-        user = "root",
-        driver = "org.h2.Driver",
-        password = ""
-    )
-    val service = WantedPersonService(database)
+//    val database = Database.connect(
+//        url = "jdbc:h2:file:./database/db",
+//        user = "root",
+//        driver = "org.h2.Driver",
+//        password = ""
+//    )
+//    val service = WantedPersonService(database)
 //    configureSerialization()
 //    configureDatabases()
-    configureRecentWantedListRouting(service)
+//    configureRecentWantedListRouting(service)
+
+    configureKoin()
+    configureRouting()
+
 }

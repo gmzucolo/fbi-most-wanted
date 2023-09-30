@@ -1,4 +1,6 @@
-package com.fiap.models
+package com.fiap.data.model
+
+import com.fiap.data.model_response.RecentWantedListResponse
 
 data class RecentWantedList(
     val items: List<WantedPerson>,

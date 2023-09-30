@@ -1,9 +1,14 @@
-package com.fiap.models
+package com.fiap.data.model
 
+import com.fiap.data.model_response.WantedPersonResponse
 import kotlinx.serialization.Serializable
+import org.bson.codecs.pojo.annotations.BsonId
+import org.bson.types.ObjectId
 
 @Serializable
 data class WantedPerson(
+    @BsonId
+    var id: String,
     val ageMax: Int,
     val ageMin: Int,
     val caution: String,
@@ -21,11 +26,8 @@ data class WantedPerson(
     val race: String,
     val sex: String,
     val title: String,
-    val uid: String,
-    val id: String
-) {
-
-}
+    val uid: String
+)
 
 fun WantedPerson.toWantedPersonResponse(): WantedPersonResponse {
     return WantedPersonResponse(

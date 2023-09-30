@@ -36,4 +36,15 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    //oracle
+    implementation("com.oracle.database.jdbc:ojdbc8:23.2.0.0")
+    //mongo db
+    implementation("org.litote.kmongo:kmongo:4.9.0")
+    implementation("org.litote.kmongo:kmongo-coroutine:4.9.0")
+    implementation("org.litote.kmongo:kmongo-coroutine-core:4.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    //koin
+    implementation("io.insert-koin:koin-core:3.2.0")
+    implementation("io.insert-koin:koin-core-jvm:3.2.0")
+    implementation("io.insert-koin:koin-ktor:3.2.0")
 }

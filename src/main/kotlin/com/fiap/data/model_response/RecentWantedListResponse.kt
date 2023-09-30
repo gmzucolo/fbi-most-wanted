@@ -1,5 +1,6 @@
-package com.fiap.models
+package com.fiap.data.model_response
 
+import com.fiap.data.model.WantedPerson
 import kotlinx.serialization.Serializable
 
 @Serializable

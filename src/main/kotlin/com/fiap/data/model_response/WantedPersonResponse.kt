@@ -1,4 +1,4 @@
-package com.fiap.models
+package com.fiap.data.model_response
 
 import kotlinx.serialization.Serializable
 

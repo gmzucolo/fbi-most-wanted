@@ -1,6 +1,6 @@
 package com.fiap.service
 
-import com.fiap.models.WantedPerson
+import com.fiap.data.model.WantedPerson
 import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
